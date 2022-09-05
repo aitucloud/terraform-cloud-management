@@ -37,12 +37,12 @@ data "openstack_images_image_v2" "ubuntu2204" {
   most_recent = true
 }
 
-// This resource is used to download custom image
-// resource "openstack_images_image_v2" "image_name" {
-//   name             = "Image Name"
-//   image_source_url = "http://example.com/sample-image.qcow2"
-//   container_format = "bare"
-//   disk_format      = "qcow2"
-//   min_disk_gb      = 10
-//   web_download     = true
-// }
+## This resource is used to download custom image
+#resource "openstack_images_image_v2" "image_name" {
+#  name             = "Image Name"
+#  image_source_url = "http://example.com/sample-image.qcow2"
+#  container_format = "bare"
+#  disk_format      = "qcow2"
+#  min_disk_gb      = 10
+#  web_download     = true
+#}
