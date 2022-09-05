@@ -1,20 +1,15 @@
-# Use this if you have an external network assigned to your project
-#data "openstack_networking_network_v2" "ext" {
-#  name = "qshysomenetext"
-#}
-#
-#data "openstack_networking_subnet_v2" "ext" {
-#  name = "qshysomenetext"
-#}
+data "openstack_networking_network_v2" "ext" {
+  name = "qshyospubliccloud"
+}
+
+data "openstack_networking_subnet_v2" "ext" {
+  name = "qshyospubliccloud"
+}
 
 resource "openstack_networking_router_v2" "router" {
   name                = "exampleproject_dev_router"
   admin_state_up      = true
-  #external_network_id = data.openstack_networking_network_v2.ext.id
-  #external_fixed_ip {
-  #  subnet_id  = data.openstack_networking_subnet_v2.ext.id
-  #  ip_address = "10.0.0.11"
-  #}
+  external_network_id = data.openstack_networking_network_v2.ext.id
 }
 
 resource "openstack_networking_network_v2" "main" {
@@ -28,7 +23,7 @@ resource "openstack_networking_subnet_v2" "main" {
   cidr       = "10.0.0.0/24"
   ip_version = 4
   enable_dhcp = true
-  #dns_nameservers = [ "8.8.8.8", "1.1.1.1" ]
+  dns_nameservers = [ "8.8.8.8", "1.1.1.1" ]
   allocation_pool {
     start = "10.0.0.10"
     end   = "10.0.0.100"
