@@ -44,12 +44,12 @@ resource "openstack_compute_instance_v2" "vm_0" {
   }
 }
 
-#resource "openstack_networking_floatingip_v2" "vm_0" {
-#  pool      = data.openstack_networking_network_v2.ext.name
-#  subnet_id = data.openstack_networking_subnet_v2.ext.id
-#  port_id   = openstack_networking_port_v2.vm_0.id
-#}
+resource "openstack_networking_floatingip_v2" "vm_0" {
+  pool      = data.openstack_networking_network_v2.ext.name
+  subnet_id = data.openstack_networking_subnet_v2.ext.id
+  port_id   = openstack_networking_port_v2.vm_0.id
+}
 
-#output "vm_0_connect_via" {
-#  value = "ssh cloud-user@${openstack_networking_floatingip_v2.vm_0.address}"
-#}
+output "vm_0_connect_via" {
+  value = "ssh almalinux@${openstack_networking_floatingip_v2.vm_0.address}"
+}
