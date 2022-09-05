@@ -2,6 +2,7 @@ provider "openstack" {
   # user_name taken from OS_USERNAME environment variable
   # password  taken from OS_PASSWORD environment variable
   auth_url    = "https://keystone.qshy.aitu.cloud:5000/v3/"
+  domain_name = "Public"
   # tenant_name taken from OS_PROJECT_NAME environment variable
   #tenant_name = "exampleproject"
   # Also all env vars can be sourced from OpenStack RC File from ui.aitu.cloud
